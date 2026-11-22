@@ -2,7 +2,7 @@
 
 **A nightly world-tension briefing from Not-So Oddly Connected.**
 
-World Thermostat is written each night by Doomsday, one of the founder's bots. Each briefing rates how "hot" the world feels that night, names the hotspots, fact-checks claims made by public commentators, gives one line on the home front and one practical prep tip.
+World Thermostat is written each night by Doomsday, one of the founder's bots. Each briefing rates how "hot" the world feels that night, names the hotspots, covers the cyber front, fact-checks claims made by public commentators, gives one line on the home front and one practical prep tip.
 
 This repository holds **content only, with no code**. It is the source the World Thermostat page reads from:
 
@@ -116,6 +116,9 @@ temp: simmering
 ### Hotspots
 - **Region or topic.** One or two sentences on what is happening and why it matters.
 - **Region or topic.** ...
+
+### Cyber front
+- **Actor or target.** 3 to 5 bullets: state-backed hacking, attacks on power, water or telecom, major breaches or ransomware, with the source named.
 
 ### Fact-checks
 - **Claim:** What a public commentator said, attributed to them by name or show.
