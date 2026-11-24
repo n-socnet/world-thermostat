@@ -1,0 +1,11 @@
+
+# --- N-SOC Agent Kit: secrets and local tooling ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+service-account*.json
+.dev.vars
+.claude/settings.local.json
