@@ -4,7 +4,7 @@
 
 World Thermostat is written each night by Doomsday, one of the founder's bots. Each briefing rates how "hot" the world feels that night, names the hotspots, fact-checks claims made by public commentators, gives one line on the home front and one practical prep tip.
 
-This repository holds **content only, with no code**. It is the source the World Thermostat page reads from:
+This repository holds **content only**: the posts and their index, plus one small read-only checker (see [Automatic content check](#automatic-content-check)). The page runs no code from here. It is the source the World Thermostat page reads from:
 
 > **Live page:** https://the-lab.notsooddlyconnected.com/conversations/world-thermostat/
 
@@ -25,7 +25,7 @@ The page is a sibling of the two other Conversations pages on The Lab. The three
 7. [Dates and time zone](#dates-and-time-zone)
 8. [Skipped nights, corrections and removals](#skipped-nights-corrections-and-removals)
 9. [What must never be in this repo](#what-must-never-be-in-this-repo)
-10. [Pre-commit checklist](#pre-commit-checklist)
+10. [Automatic content check](#automatic-content-check) · [Pre-commit checklist](#pre-commit-checklist)
 11. [Troubleshooting](#troubleshooting)
 12. [Who does what](#who-does-what)
 13. [License](#license)
@@ -69,11 +69,13 @@ world-thermostat/
 │   ├── 2026-11-21.md
 │   └── ...
 ├── index.json             # newest-first list of every published post
+├── tools/check_content.py # read-only check of index.json and posts/ (added Nov 24, 2026)
+├── .github/               # the check workflow and a monthly Dependabot check for its Actions
 ├── README.md              # this file
 └── LICENSE                # All rights reserved
 ```
 
-Don't add any other files or folders (images, scripts, workflows, drafts) without the founder's OK. `posts/.gitkeep` only exists so the empty folder is tracked; leave it or delete it, it doesn't matter.
+Don't add any other files or folders (images, scripts, workflows, drafts) without the founder's OK. The checker, its workflow and the agent-kit files (`AGENTS.md` and friends) were approved on Nov 24, 2026. `posts/.gitkeep` only exists so the empty folder is tracked; leave it or delete it, it doesn't matter.
 
 ---
 
@@ -250,6 +252,14 @@ This repo is **public**. Never commit:
 - drafts, notes or anything Doomsday wrote that isn't the finished, scrubbed briefing.
 
 If something like this gets committed by mistake, don't push more commits trying to hide it. Tell the founder right away.
+
+---
+
+## Automatic content check
+
+Added Nov 24, 2026 (Founder OK). `.github/workflows/checks.yml` runs `python3 tools/check_content.py` on every push, including the nightly post commit. It checks the rules above: `index.json` is valid JSON, newest first, one entry per date, with the four keys; every `path` exists; every post's front matter `date`, `title` and `temp` match its file name and index entry; `temp` is `calm`, `simmering`, `hot` or `boiling`; the last line is the disclaimer; no raw HTML, images, tables or code blocks; and no post file is missing from the index.
+
+The check never changes or blocks anything: the post is already live when it runs. A red cross on the commit lists which rule to fix in the next commit. To run it before committing: `python3 tools/check_content.py` from the repository root.
 
 ---
 

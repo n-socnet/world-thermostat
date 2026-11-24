@@ -1,0 +1,17 @@
+# Runs on every push and pull request, including the nightly post commit. Added Nov 24, 2026 (Founder OK 2026-11-24 8:00 AM ET).
+# Checks index.json and posts/ against the README rules. It reads files only: it never changes, blocks or deploys anything.
+name: Content check
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+      - name: Content check (index.json and posts/ against README.md)
+        run: python3 tools/check_content.py

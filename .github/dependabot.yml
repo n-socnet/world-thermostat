@@ -1,0 +1,10 @@
+# Monthly check for newer versions of the GitHub Actions used in .github/workflows/. There are no packages here.
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    open-pull-requests-limit: 3
+    labels:
+      - "dependencies"
