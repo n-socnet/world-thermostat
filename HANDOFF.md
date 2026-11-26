@@ -20,6 +20,15 @@ Entries older than a few weeks can be trimmed to one line each.
 
 <!-- New entries go below this line, newest first -->
 
+### 2026-11-25 — Private assistant names out of the public README
+- Agent / model: Claude (Opus 5.5)
+- Branch / PR: `agent/claude/public-names`
+- Built or changed: `README.md` uses roles instead of names: the briefing bot, the upload bot, the coding assistant, the founder.
+- Decisions made (and why): owner approved a check of the public repos (AGENTS.md section 5: no private assistant names in public repos). The copyright line in `README.md` and `LICENSE` keeps the owner's name.
+- Verified (and how): no assistant nickname left in any tracked file; the nightly upload contract (files, branch, commit count) is unchanged.
+- Not verified / known issues: earlier versions stay visible in git history; removing them would need a history rewrite (owner's call).
+- Next step: unchanged.
+
 ### 2026-11-24 — Automatic content check
 - Agent / model: Claude (Opus 5.5)
 - Branch / PR: `agent/claude/content-check`
