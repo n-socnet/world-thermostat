@@ -2,7 +2,7 @@
 
 **A nightly world-tension briefing from Not-So Oddly Connected.**
 
-World Thermostat is written each night by Doomsday, one of the founder's bots. Each briefing rates how "hot" the world feels that night, names the hotspots, fact-checks claims made by public commentators, gives one line on the home front and one practical prep tip.
+World Thermostat is written each night by one of the founder's bots. Each briefing rates how "hot" the world feels that night, names the hotspots, fact-checks claims made by public commentators, gives one line on the home front and one practical prep tip.
 
 This repository holds **content only**: the posts and their index, plus one small read-only checker (see [Automatic content check](#automatic-content-check)). The page runs no code from here. It is the source the World Thermostat page reads from:
 
@@ -35,10 +35,10 @@ The page is a sibling of the two other Conversations pages on The Lab. The three
 ## How it works
 
 ```
-Doomsday writes the briefing (already scrubbed of anything personal)
+The briefing bot writes the briefing (already scrubbed of anything personal)
         │
         ▼
-~3:00 AM ET  Gigi commits 2 files to `main` in this repo, as 1 commit:
+~3:00 AM ET  The upload bot commits 2 files to `main` in this repo, as 1 commit:
              posts/YYYY-MM-DD.md   +   the updated index.json
         │
         ▼
@@ -83,7 +83,7 @@ Don't add any other files or folders (images, scripts, workflows, drafts) withou
 
 | Item | Rule |
 |---|---|
-| **Who** | Gigi (GitHub user `n-socnet`) |
+| **Who** | The upload bot (GitHub user `n-socnet`) |
 | **When** | About 3:00 AM ET, after the night the briefing covers |
 | **Branch** | `main`, committed directly. No PR is needed for nightly posts |
 | **Files** | Exactly 2: the new `posts/YYYY-MM-DD.md` and the updated `index.json` |
@@ -93,7 +93,7 @@ Don't add any other files or folders (images, scripts, workflows, drafts) withou
 
 Steps:
 
-1. Save Doomsday's briefing as `posts/YYYY-MM-DD.md`, using the date of the **night it covers** (see [Dates](#dates-and-time-zone)).
+1. Save the briefing bot's briefing as `posts/YYYY-MM-DD.md`, using the date of the **night it covers** (see [Dates](#dates-and-time-zone)).
 2. Open `index.json` and add the new entry at the **top** of the list.
 3. Check the [pre-commit checklist](#pre-commit-checklist).
 4. Commit both files together with the message `post: YYYY-MM-DD (temp)`.
@@ -145,7 +145,7 @@ One practical, low-cost preparedness tip.
 
 The `temp` value sets the badge colour on the page. Any other value shows as an unknown, neutral badge, so spell it exactly.
 
-| `temp` | Meaning (Doomsday's scale) | Badge colour |
+| `temp` | Meaning (the briefing's scale) | Badge colour |
 |---|---|---|
 | `calm` | Quiet night, no major escalation | teal |
 | `simmering` | Ongoing tension, nothing breaking | amber |
@@ -249,7 +249,7 @@ This repo is **public**. Never commit:
 - details of the founder's own home, supplies, routes or prep plans (the home-front line and prep tip stay **general**);
 - secrets of any kind: tokens, keys, passwords, backup files, export links, internal URLs;
 - names of private repositories or internal-only projects;
-- drafts, notes or anything Doomsday wrote that isn't the finished, scrubbed briefing.
+- drafts, notes or anything the briefing bot wrote that isn't the finished, scrubbed briefing.
 
 If something like this gets committed by mistake, don't push more commits trying to hide it. Tell the founder right away.
 
@@ -292,10 +292,10 @@ The check never changes or blocks anything: the post is already live when it run
 
 | Who | Role |
 |---|---|
-| **Doomsday** (founder's bot) | Writes each briefing and scrubs it of anything personal |
-| **Gigi** (`n-socnet`) | Uploads the nightly post plus `index.json` at about 3 AM ET |
-| **Clyde** (Claude) | Built the World Thermostat page on The Lab and maintains this README via PRs. Never merges |
-| **Founder** (Michael) | Owns the project. Reviews and merges every PR. Approves every deploy |
+| **Briefing bot** | Writes each briefing and scrubs it of anything personal |
+| **Upload bot** (`n-socnet`) | Uploads the nightly post plus `index.json` at about 3 AM ET |
+| **Coding assistant** | Built the World Thermostat page on The Lab and maintains this README via PRs. Never merges |
+| **Founder** | Owns the project. Reviews and merges every PR. Approves every deploy |
 
 ---
 
